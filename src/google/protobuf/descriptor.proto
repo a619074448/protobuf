@@ -560,6 +560,8 @@ message EnumOptions {
   // is a formalization for deprecating enums.
   optional bool deprecated = 3 [default=false];
 
+  optional bool cc_enum_class = 4 [default=false];
+
   // The parser stores options it doesn't recognize here. See above.
   repeated UninterpretedOption uninterpreted_option = 999;
 

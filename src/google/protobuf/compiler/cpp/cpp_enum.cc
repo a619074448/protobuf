@@ -83,7 +83,11 @@ void EnumGenerator::GenerateDefinition(io::Printer* printer) {
   vars["short_name"] = descriptor_->name();
   vars["enumbase"] = classname_ + (options_.proto_h ? " : int" : "");
 
-  printer->Print(vars, "enum $enumbase$ {\n");
+  if (!descriptor_->options().cc_enum_class())
+    printer->Print(vars, "enum $enumbase$ {\n");
+  else
+    printer->Print(vars, "enum class $enumbase$ {\n");
+
   printer->Annotate("enumbase", descriptor_);
   printer->Indent();
 

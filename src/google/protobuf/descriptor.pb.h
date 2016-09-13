@@ -2710,6 +2710,13 @@ class LIBPROTOBUF_EXPORT EnumOptions : public ::google::protobuf::Message /* @@p
   bool deprecated() const;
   void set_deprecated(bool value);
 
+  // optional bool cc_enum_class = 4 [default = false];
+  bool has_cc_enum_class() const;
+  void clear_cc_enum_class();
+  static const int kCcEnumClassFieldNumber = 4;
+  bool cc_enum_class() const;
+  void set_cc_enum_class(bool value);
+
   // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
   int uninterpreted_option_size() const;
   void clear_uninterpreted_option();
@@ -2729,6 +2736,8 @@ class LIBPROTOBUF_EXPORT EnumOptions : public ::google::protobuf::Message /* @@p
   inline void clear_has_allow_alias();
   inline void set_has_deprecated();
   inline void clear_has_deprecated();
+  inline void set_has_cc_enum_class();
+  inline void clear_has_cc_enum_class();
 
   ::google::protobuf::internal::ExtensionSet _extensions_;
 
@@ -2738,6 +2747,7 @@ class LIBPROTOBUF_EXPORT EnumOptions : public ::google::protobuf::Message /* @@p
   ::google::protobuf::RepeatedPtrField< ::google::protobuf::UninterpretedOption > uninterpreted_option_;
   bool allow_alias_;
   bool deprecated_;
+  bool cc_enum_class_;
   friend void LIBPROTOBUF_EXPORT protobuf_AddDesc_google_2fprotobuf_2fdescriptor_2eproto();
   friend void protobuf_AssignDesc_google_2fprotobuf_2fdescriptor_2eproto();
   friend void protobuf_ShutdownFile_google_2fprotobuf_2fdescriptor_2eproto();
@@ -6921,6 +6931,30 @@ inline void EnumOptions::set_deprecated(bool value) {
   set_has_deprecated();
   deprecated_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.EnumOptions.deprecated)
+}
+
+// optional bool cc_enum_class = 4 [default = false];
+inline bool EnumOptions::has_cc_enum_class() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void EnumOptions::set_has_cc_enum_class() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void EnumOptions::clear_has_cc_enum_class() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void EnumOptions::clear_cc_enum_class() {
+  cc_enum_class_ = false;
+  clear_has_cc_enum_class();
+}
+inline bool EnumOptions::cc_enum_class() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.EnumOptions.cc_enum_class)
+  return cc_enum_class_;
+}
+inline void EnumOptions::set_cc_enum_class(bool value) {
+  set_has_cc_enum_class();
+  cc_enum_class_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.EnumOptions.cc_enum_class)
 }
 
 // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
